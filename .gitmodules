@@ -1,0 +1,3 @@
+[submodule "meta-smartmirror"]
+	path = meta-smartmirror
+	url = git@gitlab.com:j-mcavoy/meta-smartmirror.git
