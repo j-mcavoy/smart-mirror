@@ -1,8 +1,11 @@
-image: crops/poky:latest
+image: ubuntu:latest
 
 before_script:
+  - apt-get -y update
+  - apt-get -y install gawk wget git-core diffstat unzip texinfo gcc-multilib \
+     build-essential chrpath socat libsdl1.2-dev xterm
   - source oe-init-build-env
- 
+
 build:
   stage: build
   script:
