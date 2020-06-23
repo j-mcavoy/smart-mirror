@@ -1,0 +1,15 @@
+image: crops/poky:latest
+
+before_script:
+  - source oe-init-build-env
+ 
+build:
+  stage: build
+  script:
+    - bitbake core-image-minimal
+  artifacts:
+    paths:
+    - build/downloads
+    - build/cache
+    - build/sstate-cache
+    - build/tmp
