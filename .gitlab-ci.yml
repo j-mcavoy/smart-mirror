@@ -2,7 +2,11 @@ image: crops/poky
 
 build:
   stage: build
+  variables:
+    workdir: /workdir
   script:
+  - pwd
+  - ls
   - ./bbb_build.sh
   artifacts:
     paths:
