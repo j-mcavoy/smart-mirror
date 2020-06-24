@@ -2,6 +2,7 @@ ctrl_interface=/var/run/wpa_supplicant
 ctrl_interface_group=0
 update_config=1
 
+# Connect to any open network
 network={
         key_mgmt=NONE
 }
