@@ -8,7 +8,8 @@ PR = "r155"
 
 INHIBIT_DEFAULT_DEPS = "1"
 
-SRC_URI = "file://functions \
+SRC_URI = "file://start-wifi.sh \
+           file://functions \
            file://halt \
            file://umountfs \
            file://devpts.sh \
@@ -83,6 +84,7 @@ do_install () {
 	# Holds state information pertaining to urandom
 	install -d ${D}${localstatedir}/lib/urandom
 
+	install -m 0755    ${WORKDIR}/start-wifi.sh ${D}${sysconfdir}/init.d
 	install -m 0644    ${WORKDIR}/functions		${D}${sysconfdir}/init.d
 	install -m 0755    ${WORKDIR}/bootmisc.sh	${D}${sysconfdir}/init.d
 	install -m 0755    ${WORKDIR}/checkroot.sh	${D}${sysconfdir}/init.d
@@ -126,6 +128,7 @@ do_install () {
 #
 # Create runlevel links
 #
+    update-rc.d -r ${D} start-wifi.sh start 99 2 3 4 5 .
 	update-rc.d -r ${D} rmnologin.sh start 99 2 3 4 5 .
 	update-rc.d -r ${D} sendsigs start 20 0 6 .
 	update-rc.d -r ${D} urandom start 38 S 0 6 .
@@ -153,6 +156,7 @@ do_install () {
 }
 
 MASKED_SCRIPTS = " \
+  start-wifi \
   banner \
   bootmisc \
   checkfs \
