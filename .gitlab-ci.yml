@@ -1,11 +1,9 @@
-image: docker:latest
+image: crops/poky
 
 build:
   stage: build
   script:
-  - pwd
-  - ls
-  - docker run --rm -v $(readlink -f .):/workdir crops/poky --workdir=/workdir ./bbb_build.sh
+  - ./bbb_build.sh
   artifacts:
     paths:
     - build/downloads
