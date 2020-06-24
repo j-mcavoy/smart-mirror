@@ -5,7 +5,7 @@ build:
   script:
   - pwd
   - ls
-  - ./docker_setup.sh
+  - docker run --rm -it -v $(readlink -f .):/workdir crops/poky --workdir=/workdir
   - source bbb_build.sh
   artifacts:
     paths:
