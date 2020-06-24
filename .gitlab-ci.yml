@@ -5,9 +5,9 @@ build:
   script:
   - pwd
   - ls
-  - ./docker_setup.sh
+  - source docker_setup.sh
   - source oe-init-build-env
-    - bitbake core-image-minimal
+  - bitbake core-image-minimal
   artifacts:
     paths:
     - build/downloads
