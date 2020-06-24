@@ -1,9 +1,7 @@
-image: ubuntu:latest
+image: docker:latest
 
 before_script:
-  - export DEBIAN_FRONTEND=noninteractive
-  - apt-get -y update
-  - apt-get -y install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev xterm
+  - ./docker_setup.sh
   - source oe-init-build-env
 
 build:
