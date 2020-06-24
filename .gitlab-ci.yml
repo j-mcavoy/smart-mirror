@@ -2,11 +2,11 @@ image: crops/poky
 
 build:
   stage: build
-  variables:
-    workdir: /workdir
   script:
   - pwd
   - ls
+  - mv /builds/j-mcavoy/smart-mirror /workdir
+  - cd /workdir
   - ./bbb_build.sh
   artifacts:
     paths:
